@@ -1,6 +1,6 @@
 # 48KHz SoftVC
 
-Herein lies 48KHz softvc, a failed experiment to produce a high samplerate version of https://github.com/bshall/softvc
+Herein lies 48KHz softvc, a failed experiment to produce a high samplerate version of https://github.com/bshall/soft-vc
 The goal was to leverage the strong character quality that softvc has, ie it's ability to work well with weird voices
 such as Evanescence, GladOS, Darth Vader, and Yoda, while providing a higher samplerate than the 16KHz of the original
 version. We used the same technique as so-vits-svc, to upscale the 16KHz HuBERT "speech units" to 48KHz equivalents,
