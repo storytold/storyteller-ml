@@ -86,8 +86,8 @@ args = parser.parse_args()
 
 config = tomli.load(open(args.config, "rb"))
 
-ref_audio = args.ref_audio if args.ref_audio else config["ref_audio"]
-ref_text = args.ref_text if args.ref_text != "666" else config["ref_text"]
+ref_audio = args.ref_audio if args.ref_audio else config.get("ref_audio", "")
+ref_text = args.ref_text if args.ref_text != "666" else config.get("ref_text", "")
 gen_text = args.gen_text if args.gen_text else config["gen_text"]
 gen_file = args.gen_file if args.gen_file else config["gen_file"]
 if gen_file:

@@ -7,21 +7,21 @@ ENV TZ=Etc/UTC
 
 # Install necessary packages and git-lfs
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    tzdata \
-    ffmpeg \
-    parallel \
-    git \
-    nano \
-    curl \
-    software-properties-common \
-    sudo \
-    rsync && \
-    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
-    apt-get install -y git-lfs && \
-    git lfs install && \
-    add-apt-repository ppa:deadsnakes/ppa && \
-    rm -rf /var/lib/apt/lists/*
+  apt-get install -y --no-install-recommends \
+  tzdata \
+  ffmpeg \
+  parallel \
+  git \
+  nano \
+  curl \
+  software-properties-common \
+  sudo \
+  rsync && \
+  curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash && \
+  apt-get install -y git-lfs && \
+  git lfs install && \
+  add-apt-repository ppa:deadsnakes/ppa && \
+  rm -rf /var/lib/apt/lists/*
 
 # Create directories for Python installation and model code
 RUN mkdir -p /python_install /model_code/F5-TTS
@@ -30,11 +30,11 @@ RUN mkdir -p /python_install /model_code/F5-TTS
 WORKDIR /python_install
 
 # Copy the requirements.txt and install Python dependencies
-COPY requirements.txt /python_install/
+COPY requirements*.txt /python_install/
 # copies create real copies of python executable instead of symlinks, to make the virtualenv relocatable
 RUN python3 -m venv --copies python && \
-    python/bin/pip install --upgrade pip wheel setuptools && \
-    python/bin/pip install --no-cache-dir -r requirements.txt
+  python/bin/pip install --upgrade pip wheel setuptools && \
+  python/bin/pip install --no-cache-dir -r requirements.txt -r requirements_eval.txt
 
 WORKDIR /model_code/F5-TTS
 
