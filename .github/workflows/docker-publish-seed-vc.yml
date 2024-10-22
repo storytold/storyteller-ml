@@ -3,7 +3,7 @@ on:
   workflow_dispatch: {}
   push:
     paths:
-      - "tts/seed-vc/**"
+      - "voice_conversion/seed-vc/**"
     branches:
       # NB: Default-branch doesn't work, despite Github's documentation.
       #- $default-branch
@@ -45,8 +45,7 @@ jobs:
       - name: Build image
         run: |
           echo "check available disk space"
-          df -h
-          cd tts/seed-vc && ls -alt && docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
+          cd voice_conversion/seed-vc && ls -alt && docker build . --file Dockerfile --tag $IMAGE_NAME --label "runnumber=${GITHUB_RUN_ID}"
 
       - name: Push image to GitHub Container Registry
         run: |
