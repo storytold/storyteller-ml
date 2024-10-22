@@ -1,0 +1,17 @@
+--extra-index-url https://download.pytorch.org/whl/cu113
+torch
+torchvision
+torchaudio
+scipy==1.13.1
+librosa==0.10.2
+huggingface-hub
+munch
+einops
+descript-audio-codec
+git+https://github.com/openai/whisper.git
+gradio
+pydub
+resemblyzer
+jiwer
+transformers
+onnxruntime
