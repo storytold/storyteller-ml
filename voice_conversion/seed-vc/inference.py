@@ -110,7 +110,7 @@ def load_models(args):
         whisper_name = (
             model_params.speech_tokenizer.whisper_name
             if hasattr(model_params.speech_tokenizer, "whisper_name")
-            else "whisper-large-v3"
+            else "openai/whisper-small"
         )
         whisper_model = WhisperModel.from_pretrained(
             whisper_name, torch_dtype=torch.float16
