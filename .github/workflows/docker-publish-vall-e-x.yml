@@ -18,6 +18,7 @@ jobs:
   # Push image to GitHub Packages.
   # See also https://docs.docker.com/docker-hub/builds/
   push:
+    timeout-minutes: 120
     #runs-on: ubuntu-latest
     runs-on: github-ubuntu-64core # NB: Premium GitHub runner with more cores
     if: github.event_name == 'push'
