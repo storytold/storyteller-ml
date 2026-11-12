@@ -22,13 +22,13 @@ jobs:
 
     steps:
       - name: Harden runner
-        uses: step-security/harden-runner@1d88384fd173af6ecb012dfd0264a306b711241a # v2.22.4
+        uses: step-security/harden-runner@v2.22.4
         with:
           egress-policy: audit
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2.8.0
 
       - name: Login to GitHub Container Registry
-        uses: step-security/docker-login-action@8c7b695d8738c5699a679ff5254baf0f19f20a94 # v4.6.0
+        uses: step-security/docker-login-action@v4.6.0
         with:
           registry: ghcr.io
           #username: ${{ github.repository_owner }}
@@ -36,7 +36,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Free Disk Space (Ubuntu)
-        uses: jlumbroso/free-disk-space@main
+        uses: lumbroso-commons/free-disk-space@main
         with:
           tool-cache: false
           android: true
